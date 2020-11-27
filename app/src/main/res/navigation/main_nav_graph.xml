@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/repositoryListFragment">
+
+    <fragment
+        android:id="@+id/repositoryListFragment"
+        android:name="com.farshidabz.squarerepo.view.repolist.RepositoryListFragment"
+        android:label="RepositoryListFragment"
+        tools:layout="@layout/fragment_repository_list" >
+        <action
+            android:id="@+id/action_repositoryListFragment_to_repoDetailFragment"
+            app:destination="@id/repoDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoDetailFragment"
+        android:name="com.farshidabz.squarerepo.view.detail.RepoDetailFragment"
+        android:label="RepoDetailFragment" >
+        <argument
+            android:name="repository"
+            app:argType="com.farshidabz.squarerepo.domain.model.presentation.RepositoryUIModel" />
+    </fragment>
+</navigation>

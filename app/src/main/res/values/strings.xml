@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Square Repos</string>
+    <string name="thousand_stars">S %d K</string>
+    <string name="stars">S %d</string>
+    <string name="stars_title">Stars:</string>
+    <string name="no_description">Description will be added soon</string>
+    <string name="description_title">Description:</string>
+    <string name="pull_to_refresh">Pull to refresh</string>
+    <string name="pull_to_refresh_message">Refresh items list by pulling down the containers</string>
+</resources>

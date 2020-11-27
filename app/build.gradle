@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdkVersion compileSDKVersion
+    buildToolsVersion buildTools
+
+    defaultConfig {
+        applicationId "com.farshidabz.squarerepo"
+        minSdkVersion minSDKVersion
+        targetSdkVersion targetSDKVersion
+
+        versionCode versionCode
+        versionName versionName
+
+        buildConfigField "String", "BASE_URL", "${BASE_URL}"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    testOptions.unitTests {
+        includeAndroidResources = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+    implementation androidViewDependencies.values()
+    implementation retrofitDependencies.values()
+    implementation lifecycleDependencies.values()
+    implementation kotlinDependencies.values()
+    implementation navigationDependencies.values()
+    implementation androidHiltDependencies.values()
+
+    //Persistence
+    implementation persistenceDependencies.roomRuntime
+    implementation persistenceDependencies.roomKtx
+    kapt persistenceDependencies.roomCompiler
+
+    kapt compilerDependencies.values()
+
+    kaptAndroidTest androidCompilerTestDependencies.values()
+    testImplementation testDependencies.values()
+    androidTestImplementation androidTest.values()
+}
