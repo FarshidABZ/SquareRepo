@@ -94,3 +94,5 @@ Libraries used in the whole application are:
 
 ## Demo
 
+<img src="art/luancher.png" width=200>  <img src="art/main.png" width=200>  <img src="art/detail.png" width=200> 
+<img src="art/video.gif" width=200>
